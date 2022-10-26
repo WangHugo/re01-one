@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>[数据库] 一文搞懂case when所有使用场景</title>
+    <style>  
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="
+    background-color: #f1f1f1;
+    text-align: center;
+        padding: 15px;
+    ">
+      <img src="https://kangwenchang.com/logo.png" alt="王希贤" width="80px" height="80px" >
+    </div>
+    <div style="
+    max-width: 1200px;
+    margin: 30px auto;
+    line-height: 1.7;
+    ">
+      <h2>[数据库] 一文搞懂case when所有使用场景</h2>
+      <p>关于case when的使用情况，我总结下来有三种，第一、等值转换，第二、范围转换，第三、列转行操作。</p>
+      <b>等值转换</b>
+      <p>咱们在设计数据库的时候总是会把用户的性别用int存储（'0'为女，'1'为男），但是怎么把它转换成汉字显示呢？</p>
+      <p>原始表数据</p>
+      <img src="https://img-blog.csdnimg.cn/20190212132716869.png" alt="王希贤" width="453px" height="163px" >
+      <p>SQL语句</p>
+      <p>select name as '名字',
+      (case sex when 0 then '女' else '男' end) as '性别'
+      from test.student;</p>
+      <p>ps.最后的 'end' 别丢了，我刚开始使用的时候我就有这个毛病，并且一般的case when语句都会比较长，最好添加小括号包起来，这样更容易阅读。</p>
+      <p>查询结果</p>
+      <img src='https://img-blog.csdnimg.cn/20190212132926381.png'>
+      <p>后续待更新...</p>
+    </div>
+    <div style="
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 40px;
+    font-size: 12px
+    ">
+      <p>Copyright © Wangxixian.com</p>
+      <a href="https://kangwenchang.com">友情链接</a>
+    </div>
+  </body>
+</html>
